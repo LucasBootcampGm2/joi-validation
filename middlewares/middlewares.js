@@ -1,4 +1,3 @@
-import db from "../database/sqlite.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
