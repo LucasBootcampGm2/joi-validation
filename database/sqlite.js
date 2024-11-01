@@ -5,6 +5,12 @@ dotenv.config();
 const dbPath = process.env.DB_PATH;
 const users = JSON.parse(process.env.EXAMPLE_USERS);
 
+if (!dbPath || !users) {
+  throw new Error(
+    "DB_PATH and EXAMPLE_USERS must be defined in the environment variables."
+  );
+}
+
 const db = new sqlite3.Database(dbPath, (err) => {
   err
     ? console.error("Error connecting to the database:", err.message)
